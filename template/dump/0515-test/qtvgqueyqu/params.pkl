@@ -1,0 +1,14 @@
+{
+    "this_dir": "/home/iron/workspace_huge/chensir/chenzhuo/code/DSTG",
+    "data_root": "/home/iron/workspace_huge/chensir/chenzhuo/data",
+    "gpu": 0,
+    "batch_size": 128,
+    "epoch": 100,
+    "save_model": 0,
+    "only_test": 0,
+    "no_tensorboard": false,
+    "exp_name": "test",
+    "dump_path": "dump/",
+    "exp_id": "qtvgqueyqu",
+    "random_seed": 1104
+}
