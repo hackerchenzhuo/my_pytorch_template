@@ -11,7 +11,7 @@ class cfg():
         # change
         self.data_root = osp.abspath(osp.join(self.this_dir, '..', '..', 'data', ''))
 
-        # TODO: add some static variable
+        # TODO: add some static variable  (The frequency of change is low)
 
     def get_args(self):
         parser = argparse.ArgumentParser()
@@ -26,10 +26,10 @@ class cfg():
         parser.add_argument("--no_tensorboard", default=False, action="store_true")
         parser.add_argument("--exp_name", default="test", type=str, help="Experiment name")
         parser.add_argument("--dump_path", default="dump/", type=str, help="Experiment dump path")
-        parser.add_argument("--exp_id", default="", type=str, help="Experiment ID")
+        parser.add_argument("--exp_id", default="001", type=str, help="Experiment ID")
         parser.add_argument("--random_seed", default=1104, type=int)
 
-        # TODO: add some dynamic variable
+        # TODO: add some dynamic variable 
 
 
         args = parser.parse_args()
@@ -47,7 +47,8 @@ class cfg():
         self.exp_id = args.exp_id
         self.random_seed = args.random_seed
 
-        # cannot save and test at the same time
-        assert not (self.save_model and  self.only_test)
+        # add some constraint for parameters
+        # e.g. cannot save and test at the same time
+        assert not (self.save_model and self.only_test)
 
         # TODO: update some dynamic variable

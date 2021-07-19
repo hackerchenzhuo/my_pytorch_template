@@ -1,20 +1,29 @@
 import os
 import torch
 from torch.utils.tensorboard import SummaryWriter
+from easydict import EasyDict as edict
 from tqdm import tqdm
 import pdb
+import pprint
+
 
 from config import cfg
 from torchlight import initialize_exp, set_seed, get_dump_path, Top_K_Metric
 
 class Runner:
     def __init__(self, args):
-        self.log_dir = get_dump_path(args)
-        self.model_dir = os.path.join(self.log_dir, 'model')
+        self.datapath = edict()
+        self.datapath.log_dir = get_dump_path(args)
+        self.datapath.model_dir = os.path.join(self.log_dir, 'model')
 
         # TODO: init code
+        self.data_init()
 
         self.args = args
+        
+
+    def data_init(self):
+        pass
 
     def run(self):
         # TODO:  for i in epoch:...
@@ -40,8 +49,10 @@ class Runner:
         print(f"loading model done!")
 
     def _save_model(self, model):
-        # TODO: path
+        
         model_name = type(model).__name__
+        # TODO: path
+
         save_path = "..."
         os.makedirs(save_path, exist_ok=True)
         torch.save(model.state_dict(), save_path)
@@ -56,6 +67,9 @@ if __name__ == '__main__':
     args = cfg.get_args()
     cfg.update_train_configs(args)
     set_seed(cfg.random_seed)
+
+    pprint.pprint(self.args)
+
     logger = initialize_exp(cfg)
     logger_path = get_dump_path(cfg)
 
