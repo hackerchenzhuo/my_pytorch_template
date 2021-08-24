@@ -8,13 +8,13 @@ import pprint
 
 
 from config import cfg
-from torchlight import initialize_exp, set_seed, get_dump_path, Top_K_Metric
+from torchlight import initialize_exp, set_seed, get_dump_path
 
 class Runner:
     def __init__(self, args):
         self.datapath = edict()
         self.datapath.log_dir = get_dump_path(args)
-        self.datapath.model_dir = os.path.join(self.log_dir, 'model')
+        self.datapath.model_dir = os.path.join(self.datapath.log_dir, 'model')
 
         # TODO: init code
         self.data_init()
@@ -68,7 +68,7 @@ if __name__ == '__main__':
     cfg.update_train_configs(args)
     set_seed(cfg.random_seed)
 
-    pprint.pprint(self.args)
+    pprint.pprint(args)
 
     logger = initialize_exp(cfg)
     logger_path = get_dump_path(cfg)
