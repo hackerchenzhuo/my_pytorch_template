@@ -1,6 +1,6 @@
 # my_pytorch_template
 
-pytorch template of mine.
+pytorch template of me.
 
 # TODO
 - eval.py 独立，可视化
