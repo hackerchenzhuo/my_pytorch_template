@@ -45,6 +45,7 @@ class cfg():
         parser.add_argument('--emb_dim', default=1000, type=int, help='The embedding dimension in KGE model.')
         parser.add_argument('--adv_temp', default=1.0, type=float, help='The temperature of sampling in self-adversarial negative sampling.')
         parser.add_argument("--contrastive_loss", default=0, type=int, choices=[0, 1])
+        parser.add_argument('--weight_decay', type=float, default=0.0001)
         parser.add_argument('--clip', type=float, default=1., help='gradient clipping')
         parser.add_argument('--scheduler_steps', type=int, default=None,
                     help='total number of step for the scheduler, if None then scheduler_total_step = total_step')
