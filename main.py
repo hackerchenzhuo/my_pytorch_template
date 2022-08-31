@@ -160,7 +160,7 @@ if __name__ == '__main__':
     comment = f'bath_size={cfgs.batch_size} exp_id={cfgs.exp_id}'
 
     if not cfgs.no_tensorboard:
-        writer = SummaryWriter(log_dir=os.path.join(logger_path, 'tensorboard', time_stamp), comment=comment)
+        writer = SummaryWriter(log_dir=os.path.join(logger_path, 'tensorboard', cfgs.time_stamp), comment=comment)
 
     # print("print c to continue...")
 
