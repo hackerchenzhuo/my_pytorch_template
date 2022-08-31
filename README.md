@@ -2,6 +2,8 @@
 
 pytorch template of me.
 
+pip install -r requirement.txt
+
 # TODO
 - eval.py 独立，可视化
 - train.py 独立
