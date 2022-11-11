@@ -3,7 +3,9 @@ import random
 import json
 import numpy as np
 import pdb
-
+import torch.distributed as dist
+import os.path as osp
+from transformers import BertTokenizer
 
 class Dataset(torch.utils.data.Dataset):
     def __init__(self,
