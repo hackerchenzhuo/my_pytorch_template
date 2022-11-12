@@ -322,7 +322,7 @@ class Runner:
         os.makedirs(save_path, exist_ok=True)
         
         prefix = ""
-        if self.dist:
+        if self.args.dist:
             prefix = f"dist_{prefix}"
         save_path = osp.join(save_path, f'{self.args.exp_id}_{model_name}_{prefix}.pkl')
         
