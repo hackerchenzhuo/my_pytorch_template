@@ -38,8 +38,7 @@ def set_optim(opt, model_list, freeze_part=[], accumulation_step=None):
     
     if opt.optim == 'adamw':
         # optimizer = optim.AdamW(model.parameters(), lr=opt.lr, eps=opt.adam_epsilon)
-        # optimizer = optim.AdamW(named_parameters, lr=opt.lr, eps=opt.adam_epsilon)
-        optimizer = AdamW(parameters, lr=opt.lr, eps=opt.adam_epsilon)
+        optimizer = optim.AdamW(parameters, lr=opt.lr, eps=opt.adam_epsilon)
     elif opt.optim == 'adam':
         optimizer = optim.Adam(parameters, lr=opt.lr)
     
