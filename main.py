@@ -162,7 +162,8 @@ class Runner:
         with tqdm(total=self.args.epoch) as _tqdm:  # 使用需要的参数对tqdm进行初始化
             for i in range(self.args.epoch):
                 # _tqdm.set_description(f'Train | epoch {i} Loss {self.loss_log.get_loss():.5f} Acc {self.loss_log.get_acc()*100:.3f}%')
-                self.train_sampler.set_epoch(i)
+                if self.args.dist and not self.args.only_test:
+                    self.train_sampler.set_epoch(i)
                 # -------------------------------
                 self.train(_tqdm)
                 # 每个epoch统计一次loss
@@ -182,7 +183,7 @@ class Runner:
             self.logger.info(f"min loss {self.loss_log.get_min_loss()}")
             if not self.args.only_test and self.args.save_model:
             # TODO: save or load
-            self._save_model()
+            self._save_model(self.model)
 
     # one time train
     def train(self, _tqdm):
