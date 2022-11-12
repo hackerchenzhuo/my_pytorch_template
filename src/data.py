@@ -18,14 +18,14 @@ class Dataset(torch.utils.data.Dataset):
 
     def __getitem__(self, index):
         example = self.data[index]
-
+        return example
         # pdb.set_trace()
-        return {
-            'index': index,
-            'question': question,
-            'caption': caption,
-            'target': target,
-            'answer': answer,
-            'fact': fact,
-            'score': scores
-        }
+#         return {
+#             'index': index,
+#             'question': question,
+#             'caption': caption,
+#             'target': target,
+#             'answer': answer,
+#             'fact': fact,
+#             'score': scores
+#         }
