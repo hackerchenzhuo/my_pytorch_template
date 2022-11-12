@@ -365,13 +365,13 @@ if __name__ == '__main__':
     # -----  Begin ----------
     torch.cuda.set_device(cfgs.gpu)
     runner = Runner(cfgs, writer, logger, rank)
-    if cfg.only_test:
+    if cfgs.only_test:
         runner.test()
     else:
         runner.run()
 
     # -----  End ----------
-    if not cfgs.no_tensorboard and not cfg.only_test and rank == 0:
+    if not cfgs.no_tensorboard and not cfgs.only_test and rank == 0:
         writer.close()
         logger.info("done!")
         
