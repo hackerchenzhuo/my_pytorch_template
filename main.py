@@ -324,7 +324,7 @@ class Runner:
         prefix = ""
         if self.args.dist:
             prefix = f"dist_{prefix}"
-        save_path = osp.join(save_path, f'{self.args.exp_id}_{model_name}_{prefix}.pkl')
+        save_path = osp.join(save_path, f'{self.args.exp_id}_{prefix}.pkl')
         
         if model is None:
             return
